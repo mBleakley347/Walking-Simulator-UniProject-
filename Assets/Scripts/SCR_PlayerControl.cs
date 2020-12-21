@@ -17,5 +17,10 @@ public class SCR_PlayerControl : MonoBehaviour
        
         transform.Rotate(transform.up * Input.GetAxis("Mouse X") * rotationSpeed);
         cam.transform.Rotate(Vector3.right * Input.GetAxis("Mouse Y") * -rotationSpeed);
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

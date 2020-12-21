@@ -10,7 +10,7 @@ public class SCR_Interact : MonoBehaviour
     void Update()
     {
         ObjectCheck();
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             Click();
         }
@@ -23,15 +23,16 @@ public class SCR_Interact : MonoBehaviour
         if (hit.collider?.gameObject?.GetComponent<SCR_InformationNode>())
         {
             focus = hit.collider.gameObject.GetComponent<SCR_InformationNode>();
-            SCR_UIManager.instance.Interactable(focus.name);
+            SCR_UIManager.instance.Interactable("Information Node : " + focus.name);
         }
         else
         {
             SCR_UIManager.instance.Interactable("");
+            SCR_UIManager.instance.Information("");
         }
     }
     public void Click()
     {
-
+        SCR_UIManager.instance.Information(focus.information);
     }
 }
